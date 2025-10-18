@@ -1,38 +1,5 @@
-# Banking-Dataset
-Description
+# 🧠 Project Overview
 
-This dataset contains detailed information about various banking transactions and customer data. It has been compiled to aid in financial analysis, customer behavior studies, and predictive modeling. The dataset includes multiple attributes related to banking activities, providing a rich resource for data scientists, financial analysts, and machine learning enthusiasts.
+This project implements a **complete data engineering and access-controlled analytics pipeline** using **Django ORM** and **Apache Spark (PySpark API)**. The workflow begins with well-structured relational models in Django representing **Users**, **Admins**, **Customers**, **Accounts**, **Transactions**, **Loans**, and **CreditCards**. Each entity is interlinked with strict **referential integrity** and managed within **atomic transactions** to maintain data consistency. Data ingestion follows an **ETL architecture**, where raw banking records are extracted, cleaned, normalized, and transformed using **Spark’s distributed processing** capabilities. Through Spark **DataFrame operations**—such as **schema inference**, **joins**, **column transformations**, and **aggregations**—the datasets are optimized for **high-performance analytics** before being persisted into the **Django-backed database**.
 
-Dataset Features
-
-Customer ID: Unique identifier for each customer.
-Transaction Date: Date of the transaction.
-Transaction Type: Type of transaction (e.g., deposit, withdrawal, transfer).
-Transaction Amount: Amount of money involved in the transaction.
-Account Balance: Balance in the customer's account after the transaction.
-Customer Age: Age of the customer.
-Customer Gender: Gender of the customer.
-Account Type: Type of account (e.g., savings, checking).
-Branch Code: Identifier for the branch where the transaction occurred.
-Account Opening Date: Date when the account was opened.
-Transaction Description: Description or remarks about the transaction.
-Usage
-
-This dataset can be used for various purposes including but not limited to:
-
-Financial trend analysis
-Customer segmentation
-Predictive modeling for customer behavior
-Fraud detection
-Banking operations optimization
-Data Source
-
-The data has been anonymized and sourced from a hypothetical banking institution. All personal identifiers have been removed to ensure privacy.
-
-License
-
-This dataset is provided under the MIT License.
-
-Contributions
-
-Contributions to improve and expand this dataset are welcome. Please follow the standard GitHub procedures for pull requests and issues.
+**Role-Based Access Control (RBAC)** is seamlessly embedded through the `UserRole` model, extending Django’s `AbstractUser` to distinguish between **admin** and **user** privileges. Admins are automatically provisioned upon record creation, enabling **controlled access to sensitive financial data** while maintaining **auditability** and **separation of concerns**. The next development phase integrates **Django REST Framework (DRF)** serialization, exposing curated data via **RESTful APIs** to support secure downstream access, visualization, and **machine learning** applications. This architecture embodies a unified design where **data governance**, **scalability**, and **analytical depth** converge—transforming traditional ORM persistence into a **robust, API-driven data infrastructure** powered by **PySpark**, **Django**, and **REST Framework**.
